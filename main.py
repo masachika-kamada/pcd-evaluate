@@ -19,10 +19,10 @@ result_icp = icp_registration(pcd_s, pcd_t, None, 100)
 pcd_s.transform(result_icp.transformation)
 
 # 点群の可視化
-pcd_t = crop_volume(pcd_t, [-100, -100, -0], [100, 100, 0.3])
-o3d.visualization.draw_geometries([pcd_s, pcd_t], window_name="ICP")
+pcd_t_cut = crop_volume(pcd_t, [-100, -100, -0], [100, 100, 0.3])
+o3d.visualization.draw_geometries([pcd_s, pcd_t_cut], window_name="ICP")
 
 # 評価
 res = evaluate_registration(pcd_s, pcd_t)
 print(res)
-# --> RegistrationResult with fitness=1.000000e+00, inlier_rmse=2.353392e-01, and correspondence_set size of 983
+# --> RegistrationResult with fitness=1.000000e+00, inlier_rmse=8.084679e-02, and correspondence_set size of 983
