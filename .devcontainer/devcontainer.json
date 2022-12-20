@@ -1,0 +1,15 @@
+{
+    "name": "open3d",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "open3d",
+    "workspaceFolder": "/workspace",
+    "extensions": [
+        "ms-azuretools.vscode-docker",
+        "garytyler.darcula-pycharm",
+        "mhutchie.git-graph",
+        "github.copilot",
+        "visualstudioexptteam.vscodeintellicode",
+        "christian-kohler.path-intellisense"
+    ],
+    "postCreateCommand": "pip install -r requirements.txt"
+}

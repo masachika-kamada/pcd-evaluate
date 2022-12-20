@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  open3d:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    container_name: open3d
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      TZ: "Asia/Tokyo"
+      DISPLAY: unix${DISPLAY}
+      QT_X11_NO_MITSHM: 1
+    volumes:
+      - ..:/workspace
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.Xauthority:/home/ubuntu/.Xauthority
